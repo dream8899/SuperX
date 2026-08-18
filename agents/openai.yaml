@@ -1,0 +1,4 @@
+interface:
+  display_name: "SuperX"
+  short_description: "下载、混剪清理、多平台上传与统一资产账本的一体化短视频工作流"
+  default_prompt: "使用 $SuperX 统一处理我已授权的短视频：先 doctor 自检，再按需 download、mix 或 upload，并维护 SuperMedia 账本。"
