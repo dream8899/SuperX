@@ -44,6 +44,8 @@ yt-dlp、uv、Chrome、`sau` 仓库与 `Video_Download` 根目录。
 只有用户明确授权才公开发布或定时。「位置」默认不显示地址：上传页「短标题」后的位置
 字段保持为空，只有用户明确要求填写时才设置。定时发表计划模板见
 `references/upload/schedule-templates.md`（模板一：每天 N 条，节点 9:00/12:00/15:00/20:00）。
+上传前先做 VFR 检测修复（封面生成依赖恒定帧率）；视频标注选择「含AI生成内容」；不自动
+选择合集；标签不含比例描述；定时发表只能设未来 10 天，长排班按窗口分批。
 批量上传前必须走账本 `preflight-manifest` /
 `reserve-manifest`，完成后 `complete-manifest` 回写。详见 `references/upload/template-a.md`、
 `references/upload/install.md`、`references/upload/media-lineage.md`。
