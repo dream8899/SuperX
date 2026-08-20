@@ -1,0 +1,16 @@
+{
+  "status": "approved",
+  "approved_by": "human:solo",
+  "approved_at": "2026-08-20T19:20:00+08:00",
+  "approval_reference": "用户明确指令（2026-08-20 会话）：封面卡住与网络环境相关，先检查再决定重编码/直接发表/草稿兜底",
+  "scope": [
+    "references/upload/wechat-channels.md"
+  ],
+  "reason": "把「先检查封面/按钮状态 → 决定是否重编码（结合网络环境）→ 决定直接发表还是草稿转定时」固化为上传决策规则。",
+  "risk": "仅文档规则更新，与实跑经验一致；不弱化 AI 标注必检等既有边界。",
+  "rollback": "git revert 本次提交。",
+  "tests": [
+    "python3 scripts/controlled_evolution_guard.py --approval-file governance/approvals/2026-08-20-adaptive-cover-flow.json",
+    "diff 人工审查"
+  ]
+}
