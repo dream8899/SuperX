@@ -1,0 +1,17 @@
+{
+  "status": "approved",
+  "approved_by": "human:solo",
+  "approved_at": "2026-08-20T22:10:00+08:00",
+  "approval_reference": "用户明确指令（2026-08-20 会话）：排班计划改为「保存草稿即完成」；文案需先核对修正",
+  "scope": [
+    "references/upload/schedule-templates.md",
+    "references/upload/wechat-channels.md"
+  ],
+  "reason": "排班执行默认以「草稿保存并在草稿箱核验」为完成判据，不再自动定时发表（定时需另行明确授权）；发布前必须先完成视频与文案的逐条核对。",
+  "risk": "仅文档规则更新；与批量脚本 draft-only 模式一致。",
+  "rollback": "git revert 本次提交。",
+  "tests": [
+    "python3 scripts/controlled_evolution_guard.py --approval-file governance/approvals/2026-08-20-draft-only-plan.json",
+    "diff 人工审查"
+  ]
+}
