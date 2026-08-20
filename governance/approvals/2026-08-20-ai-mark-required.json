@@ -1,0 +1,16 @@
+{
+  "status": "approved",
+  "approved_by": "human:solo",
+  "approved_at": "2026-08-20T19:10:00+08:00",
+  "approval_reference": "用户明确指令（2026-08-20 会话）：AI 标注是必检项，必须检查通过（默认选择「含AI生成内容」）",
+  "scope": [
+    "references/upload/wechat-channels.md"
+  ],
+  "reason": "把视频标注从「应选择」升级为硬性必检：上传/草稿转定时时必须确认「含AI生成内容」，未确认通过不得发表。",
+  "risk": "仅文档规则强化，与已在实跑中验证的上传器/批量脚本行为一致。",
+  "rollback": "git revert 本次提交。",
+  "tests": [
+    "python3 scripts/controlled_evolution_guard.py --approval-file governance/approvals/2026-08-20-ai-mark-required.json",
+    "diff 人工审查"
+  ]
+}
