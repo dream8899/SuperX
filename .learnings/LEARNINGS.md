@@ -64,3 +64,25 @@ SuperX 账号继承机制：复用 sau 仓库与 VideoHub 即梦账本
 - Related Files: （待补充）
 - Tags: accounts, tencent, jimeng, inheritance
 - Pattern-Key: lrn-20260818-002
+## [LRN-20260820-001] 视频号封面生成卡住与网络环境相关，需先检查再决策
+
+**Logged**: 2026-08-20T19:20:00+08:00
+**Priority**: high
+**Status**: candidate
+**Area**: upload
+
+### Summary
+视频号封面生成是否卡住与当前网络环境强相关：网络好时上传后封面立即出现、发表按钮立即可用；网络差时封面一直「生成中」、按钮无法激活（曾被误归因为 VFR，重编码 CFR 有效但非唯一原因）。
+
+### Details
+- 同一批文件在不同网络下表现不同：换网络后同样文件上传直接出封面，无需重编码。
+- 决策顺序应为：上传后先检查封面是否正常生成/发表按钮是否可用 → 正常则直接发表；
+  卡住时若检测到 VFR（r_frame_rate ≠ avg_frame_rate）先重编码 CFR+faststart 重传；
+  仍卡住再走「保存草稿 → 草稿箱 → 定时发表」兜底。
+- 重编码不能无条件做，要考虑网络环境与是否需要。
+
+### Metadata
+- Source: task_run
+- Related Files: social-auto-upload/uploader/tencent_uploader/main.py, scripts/tencent_draft_to_schedule_batch.py
+- Tags: tencent, cover, network, vfr, upload
+- Pattern-Key: lrn-20260820-001
