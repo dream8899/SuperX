@@ -1,0 +1,18 @@
+{
+  "status": "approved",
+  "approved_by": "human:solo",
+  "approved_at": "2026-08-20T14:40:00+08:00",
+  "approval_reference": "用户明确指令（2026-08-20 会话）：更正一个通用规则——位置默认不显示地址",
+  "scope": [
+    "SKILL.md",
+    "references/upload/template-a.md",
+    "references/upload/wechat-channels.md"
+  ],
+  "reason": "用户要求把「位置默认不显示地址」确立为通用发布规则：除非明确要求，上传/发布时不填写任何地理位置。",
+  "risk": "仅文档规则变更，不涉及脚本、选择器、默认节奏或安全门禁；如需带位置发布需用户明确要求。",
+  "rollback": "git revert 本次提交，或删除新增的规则行。",
+  "tests": [
+    "python3 scripts/controlled_evolution_guard.py --approval-file governance/approvals/2026-08-20-location-default-hide.json",
+    "diff 人工审查：确认仅新增位置默认不显示地址规则"
+  ]
+}
