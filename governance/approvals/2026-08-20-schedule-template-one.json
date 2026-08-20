@@ -1,0 +1,17 @@
+{
+  "status": "approved",
+  "approved_by": "human:solo",
+  "approved_at": "2026-08-20T14:55:00+08:00",
+  "approval_reference": "用户明确指令（2026-08-20 会话）：定时发表计划模板一——每天 N 条，节点 9:00/12:00/15:00/20:00",
+  "scope": [
+    "SKILL.md",
+    "references/upload/schedule-templates.md"
+  ],
+  "reason": "用户要求把「指定账号每天发表数量 + 定时节点 9/12/15/20」确立为第一个定时发表计划模板。",
+  "risk": "仅新增文档模板与 SKILL.md 引用，不涉及脚本、选择器、默认节奏或安全门禁；定时发表仍须用户明确授权。",
+  "rollback": "git revert 本次提交，或删除新增模板文档与引用行。",
+  "tests": [
+    "python3 scripts/controlled_evolution_guard.py --approval-file governance/approvals/2026-08-20-schedule-template-one.json",
+    "diff 人工审查：确认仅新增定时发表模板文档与入口"
+  ]
+}
