@@ -1,0 +1,18 @@
+{
+  "status": "approved",
+  "approved_by": "human:solo",
+  "approved_at": "2026-08-20T17:00:00+08:00",
+  "approval_reference": "用户明确指令（2026-08-20 会话）：沉淀本次上传经验到 skill 并 push；含 VFR/封面修复、AI标注、位置、合集、标签、10天定时窗口",
+  "scope": [
+    "SKILL.md",
+    "references/upload/wechat-channels.md",
+    "references/upload/schedule-templates.md"
+  ],
+  "reason": "把实跑验证过的上传规则固化为通用规则：VFR 视频需先修复再上传（封面生成卡住）；视频标注选「含AI生成内容」；位置默认不显示地址；不自动选合集；标签不含比例描述；定时发表仅未来 10 天、长排班按窗口分批。",
+  "risk": "仅文档规则新增/强化，不涉及脚本默认节奏与安全门禁；所有改动均已在本次实跑中验证。",
+  "rollback": "git revert 本次提交，或删除新增规则行。",
+  "tests": [
+    "python3 scripts/controlled_evolution_guard.py --approval-file governance/approvals/2026-08-20-upload-qa-rules.json",
+    "diff 人工审查：确认仅新增上述上传规则"
+  ]
+}
