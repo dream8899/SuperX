@@ -72,3 +72,5 @@ uv run python /Users/solo/.agents/skills/super-upload/scripts/template_a.py \
 - 不安排每 4–6 小时刷新或点击页面来模拟在线。下次批量任务前运行一次 `sau tencent check` 即可。
 - 同一账号一次只能运行一个模板 A 批次；不要同时启动其他视频号上传窗口。
 - 无法唯一关联平台原生作品 ID 的文件会进入 HOLD，不得绕过账本直接上传。
+- 位置字段默认不显示地址：上传页「短标题」后的位置保持为空，不附加任何地理位置；
+  只有用户明确要求时才填写。

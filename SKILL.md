@@ -41,7 +41,8 @@ yt-dlp、uv、Chrome、`sau` 仓库与 `Video_Download` 根目录。
 ### 上传（upload）
 
 先用 `sau` CLI，不用浏览器桥接首发。首条或批量先存草稿，只点击一次保存并在草稿箱核验；
-只有用户明确授权才公开发布或定时。批量上传前必须走账本 `preflight-manifest` /
+只有用户明确授权才公开发布或定时。「位置」默认不显示地址：上传页「短标题」后的位置
+字段保持为空，只有用户明确要求填写时才设置。批量上传前必须走账本 `preflight-manifest` /
 `reserve-manifest`，完成后 `complete-manifest` 回写。详见 `references/upload/template-a.md`、
 `references/upload/install.md`、`references/upload/media-lineage.md`。
 
